@@ -7,6 +7,9 @@ using {
 
 
 service CatalogService @(path : '/catalog')@(requires : 'authenticated-user') {
+
+    @odata.draft.enabled
+    @Capabilities : { Deletable:true, Insertable:true}
     entity Sales                                              @(restrict : [
         {
             grant : ['READ'],
@@ -20,7 +23,8 @@ service CatalogService @(path : '/catalog')@(requires : 'authenticated-user') {
                                                               @(restrict : [{to : 'Admin'}])
                                                               action boost();
                                                           };
-
+    
+    @Capabilities : { Deletable:true, Insertable:true}
     entity Products @(restrict : [
         {
             grant : ['READ'],
@@ -34,7 +38,6 @@ service CatalogService @(path : '/catalog')@(requires : 'authenticated-user') {
             to    : 'Admin'
         }
     ])                                                 as select * from db.Products;
-
 
     entity ProductGroups @(restrict : [
         {

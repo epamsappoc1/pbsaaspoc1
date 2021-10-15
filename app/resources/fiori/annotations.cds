@@ -1,5 +1,7 @@
 using CatalogService as catalog from '../../../srv/catalog-service';
 
+annotate cds.UUID with @Core.Computed  @odata.Type : 'Edm.String';
+
 annotate catalog.Sales with @(
     UI: {
         Identification: [ {Value: country} ],
