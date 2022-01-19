@@ -1,7 +1,7 @@
 {
     "_version": "",
     "sap.app": {
-        "id": "exsaaspoc-fiori",
+        "id": "pbsaaspoc1-fiori",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {

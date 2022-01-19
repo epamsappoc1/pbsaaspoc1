@@ -1,11 +1,11 @@
-PROCEDURE "EXSAASPOC_DB_SP_TopSales" (IN amount INTEGER, OUT result "EXSAASPOC_DB_TT_TopSales")
+PROCEDURE "PBSAASPOC1_DB_SP_TopSales" (IN amount INTEGER, OUT result "PBSAASPOC1_DB_TT_TopSales")
   LANGUAGE SQLSCRIPT
   SQL SECURITY INVOKER
   READS SQL DATA
   AS
 BEGIN
   result = select ID, REGION as "region", COUNTRY as "country", AMOUNT as "amount", COMMENTS as "comments" 
-             from "EXSAASPOC_DB_SALES"
+             from "PBSAASPOC1_DB_SALES"
              where AMOUNT >= :amount
              order by AMOUNT desc
              ;

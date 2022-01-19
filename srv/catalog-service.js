@@ -47,7 +47,7 @@ module.exports = cds.service.impl(async function () {
     this.on('topSales', async (req) => {
         try {
             const tx = cds.tx(req);
-            const results = await tx.run(`CALL "EXSAASPOC_DB_SP_TopSales"(?,?)`, [req.data.amount]);
+            const results = await tx.run(`CALL "PBSAASPOC1_DB_SP_TopSales"(?,?)`, [req.data.amount]);
             return results;
         } catch (err) {
             console.error(err);

@@ -1,7 +1,7 @@
 sap.ui.define(['sap/fe/core/AppComponent'], function (AppComponent) {
     'use strict';
 
-    return AppComponent.extend("exsaaspoc-fiori.Component", {
+    return AppComponent.extend("pbsaaspoc1-fiori.Component", {
         metadata: {
             manifest: "json"
         }

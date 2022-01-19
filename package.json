@@ -1,5 +1,5 @@
 {
-  "name": "exsaaspoc",
+  "name": "pbsaaspoc1",
   "version": "0.0.1",
   "repository": "<Add your repository here>",
   "license": "UNLICENSED",
@@ -89,13 +89,13 @@
       "namespace-blocklist": [
         "com.sap.",
         "sap.",
-        "exsaaspoc."
+        "pbsaaspoc1."
       ],
       "extension-allowlist": [
         {
           "for": [
-            "exsaaspoc.db.Sales",
-            "exsaaspoc.db.Products"
+            "pbsaaspoc1.db.Sales",
+            "pbsaaspoc1.db.Products"
           ]
         },
         {

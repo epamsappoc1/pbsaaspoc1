@@ -1,5 +1,5 @@
 /* uncomment and modify as needed
-namespace Z_exsaaspoc.db;
+namespace Z_pbsaaspoc1.db;
 
 entity Z_Custom {
     key ID          : Integer;

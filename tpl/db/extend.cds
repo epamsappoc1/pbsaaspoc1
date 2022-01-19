@@ -1,5 +1,5 @@
 /* uncomment and modify as needed
-using exsaaspoc.db from '_base/db/data-model.cds';
+using pbsaaspoc1.db from '_base/db/data-model.cds';
 
 extend entity db.Sales with {
     Z_custom1 : String(100);
