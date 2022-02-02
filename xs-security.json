@@ -1,5 +1,5 @@
 {
-    "xsappname": "pbsaaspoc111",
+    "xsappname": "pbsaaspoc1111",
     "tenant-mode": "shared",
     "scopes": [
         {
@@ -78,14 +78,14 @@
     ,
     "role-collections": [
         {
-            "name": "pbsaaspoc1_Viewer",
+            "name": "pbsaaspoc111_Viewer",
             "description": "Viewing access",
             "role-template-references": [
                 "$XSAPPNAME.Viewer"
             ]
         },
         {
-            "name": "pbsaaspoc1_Administrator",
+            "name": "pbsaaspoc111_Administrator",
             "description": "Administrative access",
             "role-template-references": [
                 "$XSAPPNAME.Admin"
@@ -93,14 +93,14 @@
         }
         ,
         {
-            "name": "pbsaaspoc1_Extension_Developer",
+            "name": "pbsaaspoc111_Extension_Developer",
             "description": "Extension development access",
             "role-template-references": [
                 "$XSAPPNAME.ExtendCDS"
             ]
         },
         {
-            "name": "pbsaaspoc1_Extension_Developer_Delete",
+            "name": "pbsaaspoc111_Extension_Developer_Delete",
             "description": "Extension development delete access",
             "role-template-references": [
                 "$XSAPPNAME.ExtendCDSdelete"

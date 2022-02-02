@@ -1,5 +1,5 @@
 _schema-version: '3.2'
-ID: pbsaaspoc111
+ID: pbsaaspoc1111
 version: 0.0.1
 
 parameters:
@@ -17,7 +17,7 @@ build-parameters:
 modules:
 
   # --------------------- SERVER MODULE ------------------------
-  - name: pbsaaspoc111-srv
+  - name: pbsaaspoc1111-srv
   # ------------------------------------------------------------
     type: nodejs
     path: gen/srv
@@ -26,10 +26,10 @@ modules:
       memory: 512M
       disk-quota: 1024M
     requires:
-      - name: pbsaaspoc111-uaa
-      - name: pbsaaspoc111-logging
-      - name: pbsaaspoc111-registry
-      - name: pbsaaspoc111-sm
+      - name: pbsaaspoc1111-uaa
+      - name: pbsaaspoc1111-logging
+      - name: pbsaaspoc1111-registry
+      - name: pbsaaspoc1111-sm
     provides:
       - name: srv-api
         properties:
@@ -37,7 +37,7 @@ modules:
 
 
   # ------------------ APP ROUTER MODULE -----------------------
-  - name: pbsaaspoc111
+  - name: pbsaaspoc1111
   # ------------------------------------------------------------
     type: approuter.nodejs
     path: app
@@ -47,7 +47,7 @@ modules:
     properties:
       TENANT_HOST_PATTERN: '^(.*)-${space}-${app-name}.${default-domain}'
     requires:
-      - name: pbsaaspoc111-uaa
+      - name: pbsaaspoc1111-uaa
       - name: srv-api
         group: destinations
         properties:
@@ -55,7 +55,7 @@ modules:
           url: ~{srv-url}
           timeout: 60000
           forwardAuthToken: true
-      - name: pbsaaspoc111-logging
+      - name: pbsaaspoc1111-logging
     provides:
       - name: app_api
         properties:
@@ -65,7 +65,7 @@ modules:
 
 resources:
   # ----------------------- UAA SERVICE ------------------------
-  - name: pbsaaspoc111-uaa
+  - name: pbsaaspoc1111-uaa
   # ------------------------------------------------------------
     type: org.cloudfoundry.managed-service
     parameters:
@@ -81,29 +81,29 @@ resources:
       - name: app_api
 
   # --------------------- REGISTRY SERVICE ---------------------
-  - name: pbsaaspoc111-registry
+  - name: pbsaaspoc1111-registry
   # ------------------------------------------------------------
     type: org.cloudfoundry.managed-service
     requires:
-      - name: pbsaaspoc111-uaa
+      - name: pbsaaspoc1111-uaa
     parameters:
       service: saas-registry
       service-plan: application
       config:
-        xsappname: ~{pbsaaspoc111-uaa/XSAPPNAME}
-        appName: pbsaaspoc111
+        xsappname: ~{pbsaaspoc1111-uaa/XSAPPNAME}
+        appName: pbsaaspoc1111
         displayName: 'SaaS CAP'
         description: 'Business Application'
         category: 'SaaS Multitenant Apps'
         appUrls:
-          onSubscription: https://${org}-${space}-pbsaaspoc111-srv.${default-domain}/mtx/v1/provisioning/tenant/{tenantId}
+          onSubscription: https://${org}-${space}-pbsaaspoc1111-srv.${default-domain}/mtx/v1/provisioning/tenant/{tenantId}
 
   # ------------------- SERVICE MANAGER SERVICE ----------------
-  - name: pbsaaspoc111-sm
+  - name: pbsaaspoc1111-sm
   # ------------------------------------------------------------
     type: org.cloudfoundry.managed-service
     requires:
-     - name: pbsaaspoc111-uaa
+     - name: pbsaaspoc1111-uaa
     parameters:
        service: service-manager
        service-plan: container
@@ -113,7 +113,7 @@ resources:
          polling_timeout_seconds: 480
 
   # ---------------- APPLICATION LOGGING SERVICE ---------------
-  - name: pbsaaspoc111-logging
+  - name: pbsaaspoc1111-logging
   # ------------------------------------------------------------
     type: org.cloudfoundry.managed-service
     parameters:
